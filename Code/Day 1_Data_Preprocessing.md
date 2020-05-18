@@ -15,9 +15,10 @@ import pandas as pd
 ```
 ## 第2步：导入数据集
 ```python
-dataset = pd.read_csv('Data.csv')
-X = dataset.iloc[ : , :-1].values
-Y = dataset.iloc[ : , 3].values
+dataset = pd.read_csv('Data.csv')//读取csv文件
+X = dataset.iloc[ : , :-1].values//.iloc[行，列]
+Y = dataset.iloc[ : , 3].values  // : 全部行 or 列；[a]第a行 or 列
+                                 // [a,b,c]第 a,b,c 行 or 列
 ```
 ## 第3步：处理丢失数据
 ```python
@@ -41,7 +42,8 @@ Y =  labelencoder_Y.fit_transform(Y)
 ```
 ## 第5步：拆分数据集为训练集合和测试集合
 ```python
-from sklearn.model_selection import train_test_split
+#from sklearn.model_selection import train_test_split
+from sklearn.cross_validation import train_test_split
 X_train, X_test, Y_train, Y_test = train_test_split( X , Y , test_size = 0.2, random_state = 0)
 ```
 ## 第6步：特征量化
